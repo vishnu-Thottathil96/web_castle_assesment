@@ -7,10 +7,9 @@ import 'package:go_router/go_router.dart';
 class AppRouter {
   static final GoRouter router = GoRouter(
     navigatorKey: navigatorKey,
-    initialLocation: AppScreens.home.path, //initial route
+    initialLocation: AppScreens.splash.path, //initial route
     routes: AppRoutes.appRoutes(),
-    errorBuilder:
-        (context, state) =>
-            Scaffold(body: Center(child: Text('Page not found!'))),
+    errorBuilder: (context, state) =>
+        Scaffold(body: Center(child: Text('Page not found!'))),
   );
 }

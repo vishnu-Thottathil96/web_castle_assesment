@@ -8,17 +8,20 @@ class AppColors {
   static Color white20 = Colors.white.withAlpha((0.2 * 255).round());
   static Color white70 = Colors.white.withAlpha((0.7 * 255).round());
 
-  static Color stroke = Color(0xFF0000004D).withAlpha((0.3 * 255).round());
+  static Color stroke =
+      Color.fromARGB(0, 163, 163, 163).withAlpha((0.3 * 255).round());
 
   // Neutral Colors
   static const Color black = Colors.black;
   static const Color white = Colors.white;
+  static const Color paleGrey = Color.fromARGB(65, 158, 158, 158);
+  static const Color darkGrey = Color.fromARGB(255, 123, 123, 123);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF404040);
 
-  //button colors
-  static const Color buttonDarkGreen = Color(0xFF006837);
+  static const darkGreen = Color.fromARGB(255, 0, 127, 68);
+  static const buttonColor = Color.fromARGB(255, 255, 61, 47);
 
   // Status Colors
   static const Color success = Color(0xFF4CAF50);
