@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_template/core/constants/app_strings/app_strings.dart';
 import 'package:flutter_template/core/util/responsive_util.dart';
 import 'package:flutter_template/presentation/home_screen/widgets/banner_carousel.dart';
 import 'package:flutter_template/presentation/home_screen/widgets/brand_card.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: Column(
           children: [
             CustomAppBarSection(
-              username: 'James',
+              username: AppStrings.demoName,
               onNotificationTap: () {},
               onScanTap: () {},
             ),
