@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/core/constants/app_colors/app_colors.dart';
 import 'package:flutter_template/core/util/responsive_util.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -47,7 +48,7 @@ class CategoryItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: AppColors.black,
                 ),
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,

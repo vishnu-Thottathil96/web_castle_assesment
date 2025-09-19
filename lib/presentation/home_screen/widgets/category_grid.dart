@@ -43,7 +43,6 @@ class CategoryGrid extends StatelessWidget {
         ),
       );
     } else {
-      //
       return SizedBox(
         height: ResponsiveHelper.scaleHeight(context, 150),
         child: ListView.separated(

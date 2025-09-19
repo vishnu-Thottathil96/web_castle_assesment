@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/core/constants/app_colors/app_colors.dart';
+import 'package:flutter_template/core/constants/app_strings/app_strings.dart';
 import 'package:flutter_template/core/constants/asset_paths/app_assets.dart';
 import 'package:flutter_template/core/util/responsive_util.dart';
 import 'package:flutter_template/presentation/widgets/gap.dart';
@@ -32,7 +33,7 @@ class CustomAppBarSection extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: "Welcome, ",
+                  text: "${AppStrings.greating} , ",
                   style: GoogleFonts.questrial(
                     color: AppColors.black,
                     fontSize: 16.sp,
@@ -88,11 +89,12 @@ class CustomAppBarSection extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 12),
                   ),
-                  icon: const Icon(Icons.qr_code_scanner, color: Colors.white),
+                  icon:
+                      const Icon(Icons.qr_code_scanner, color: AppColors.white),
                   label: const Text(
                     "Scan Here",
                     style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w500),
+                        color: AppColors.white, fontWeight: FontWeight.w500),
                   ),
                 ),
               ),

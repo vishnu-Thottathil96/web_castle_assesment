@@ -9,6 +9,7 @@ class ProductCard extends StatelessWidget {
   final String title;
   final String price;
   final String oldPrice;
+  final String? currency;
 
   const ProductCard({
     super.key,
@@ -16,6 +17,7 @@ class ProductCard extends StatelessWidget {
     required this.title,
     required this.price,
     required this.oldPrice,
+    this.currency,
   });
 
   @override
@@ -84,7 +86,7 @@ class ProductCard extends StatelessWidget {
                 errorBuilder: (context, error, stackTrace) => Icon(
                   Icons.image,
                   size: 100.sp,
-                  color: Colors.grey.shade300,
+                  color: AppColors.darkGrey,
                 ),
               )),
               Gap.vertical(context, 8),
@@ -109,7 +111,7 @@ class ProductCard extends StatelessWidget {
               Padding(
                 padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
                 child: Text(
-                  'AED$oldPrice',
+                  '${currency ?? 'AED'}$oldPrice',
                   style: TextStyle(
                       fontSize: 11.sp,
                       color: AppColors.darkGrey,
@@ -124,7 +126,7 @@ class ProductCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'AED $price',
+                      '${currency ?? 'AED'} $price',
                       style: TextStyle(
                         fontSize: 11.sp,
                         fontWeight: FontWeight.bold,
@@ -173,8 +175,6 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: ResponsiveHelper.scaleWidth(context, 8)),
-
-                    /// Add to Cart button-like container
                     Expanded(
                       flex: 5,
                       child: AddToCartButton(),

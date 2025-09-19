@@ -55,7 +55,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
   @override
   Widget build(BuildContext context) {
     if (widget.imageUrls.isEmpty) {
-      return const SizedBox(); // if no images passed
+      return const SizedBox(); 
     }
 
     double bannerHeight =

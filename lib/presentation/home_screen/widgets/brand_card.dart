@@ -20,10 +20,10 @@ class BrandCard extends StatelessWidget {
         borderRadius:
             BorderRadius.circular(ResponsiveHelper.scaleRadius(context, 10)),
       ),
-      clipBehavior: Clip.antiAlias, // ensure image respects rounded corners
+      clipBehavior: Clip.antiAlias, 
       child: Image.network(
         imageUrl,
-        fit: BoxFit.contain, // keeps aspect ratio of brand logo
+        fit: BoxFit.contain, 
         errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
       ),
     );
