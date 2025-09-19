@@ -20,169 +20,174 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cardWidth = (MediaQuery.of(context).size.width / 2) -
-        ResponsiveHelper.scaleWidth(context, 20);
+    double cardWidth = ResponsiveHelper.scaleWidth(context, 165);
 
-    return Container(
-      width: cardWidth,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius:
-            BorderRadius.circular(ResponsiveHelper.scaleRadius(context, 12)),
-        border: Border.all(color: AppColors.stroke, width: 1.5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          /// Discount and Favorite icon
-          Gap.vertical(context, 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      children: [
+        Container(
+          width: cardWidth,
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(
+                ResponsiveHelper.scaleRadius(context, 12)),
+            border: Border.all(color: AppColors.stroke, width: 1.5),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColors.paleGrey,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(
-                        ResponsiveHelper.scaleRadius(context, 16)),
-                    bottomRight: Radius.circular(
-                        ResponsiveHelper.scaleRadius(context, 16)),
-                  ),
-                ),
-                child: Padding(
-                  padding: ResponsiveHelper.scalePadding(
-                    context,
-                    vertical: 5,
-                    horizontal: 10,
-                  ),
-                  child: Text(
-                    "40% OFF",
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.darkGreen,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(
-                      right: ResponsiveHelper.scaleWidth(context, 5)),
-                  child: FavoriteIcon()),
-            ],
-          ),
-
-          /// Product Image
-          Center(
-              child: Image.network(
-            height: ResponsiveHelper.scaleHeight(context, 100),
-            width: ResponsiveHelper.scaleWidth(context, 100),
-            image,
-            fit: BoxFit.contain,
-            errorBuilder: (context, error, stackTrace) => Icon(
-              Icons.image,
-              size: 100.sp,
-              color: Colors.grey.shade300,
-            ),
-          )),
-          Gap.vertical(context, 8),
-
-          /// Title
-          Padding(
-            padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
-            child: Text(
-              title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBox(height: ResponsiveHelper.scaleHeight(context, 4)),
-
-          /// Price Section
-          Padding(
-            padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
-            child: Text(
-              'AED$oldPrice',
-              style: TextStyle(
-                  fontSize: 12.sp,
-                  color: AppColors.darkGrey,
-                  decoration: TextDecoration.lineThrough,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(height: ResponsiveHelper.scaleHeight(context, 4)),
-
-          Padding(
-            padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
-            child: Row(
-              children: [
-                Text(
-                  'AED $price',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.black,
-                  ),
-                ),
-                Text(
-                  " per Dozen",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: AppColors.black,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: ResponsiveHelper.scaleHeight(context, 12)),
-
-          Padding(
-            padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    alignment: Alignment.center,
+              /// Discount and Favorite icon
+              Gap.vertical(context, 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: ResponsiveHelper.scaleHeight(context, 20),
+                    width: ResponsiveHelper.scaleWidth(context, 64),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                          ResponsiveHelper.scaleRadius(context, 14)),
-                      border: Border.all(color: AppColors.stroke),
+                      color: AppColors.paleGrey,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(
+                            ResponsiveHelper.scaleRadius(context, 20)),
+                        bottomRight: Radius.circular(
+                            ResponsiveHelper.scaleRadius(context, 20)),
+                      ),
                     ),
-                    child: Padding(
-                      padding: ResponsiveHelper.scalePadding(context,
-                          vertical: 10, horizontal: 5),
-                      child: Text(
-                        "RFQ",
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.black,
+                    child: Center(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          "40% OFF",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.darkGreen,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: ResponsiveHelper.scaleWidth(context, 8)),
+                  Padding(
+                      padding: EdgeInsets.only(
+                          right: ResponsiveHelper.scaleWidth(context, 8)),
+                      child: FavoriteIcon()),
+                ],
+              ),
 
-                /// Add to Cart button-like container
-                Expanded(
-                  flex: 5,
-                  child: AddToCartButton(),
+              /// Product Image
+              Center(
+                  child: Image.network(
+                height: ResponsiveHelper.scaleHeight(context, 100),
+                width: ResponsiveHelper.scaleWidth(context, 100),
+                image,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) => Icon(
+                  Icons.image,
+                  size: 100.sp,
+                  color: Colors.grey.shade300,
                 ),
-              ],
-            ),
+              )),
+              Gap.vertical(context, 8),
+
+              /// Title
+              Padding(
+                padding: ResponsiveHelper.scalePadding(context, horizontal: 10),
+                child: Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.black,
+                  ),
+                ),
+              ),
+              Gap.vertical(context, 14),
+
+              /// Price Section
+              Padding(
+                padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
+                child: Text(
+                  'AED$oldPrice',
+                  style: TextStyle(
+                      fontSize: 11.sp,
+                      color: AppColors.darkGrey,
+                      decoration: TextDecoration.lineThrough,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(height: ResponsiveHelper.scaleHeight(context, 4)),
+
+              Padding(
+                padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
+                child: Row(
+                  children: [
+                    Text(
+                      'AED $price',
+                      style: TextStyle(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.black,
+                      ),
+                    ),
+                    Text(
+                      " per Dozen",
+                      style: TextStyle(
+                        fontSize: 10.sp,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Gap.vertical(context, 15),
+
+              Padding(
+                padding: ResponsiveHelper.scalePadding(context, horizontal: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        height: ResponsiveHelper.scaleHeight(context, 34),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                              ResponsiveHelper.scaleRadius(context, 14)),
+                          border: Border.all(color: AppColors.stroke),
+                        ),
+                        child: Padding(
+                          padding: ResponsiveHelper.scalePadding(context,
+                              horizontal: 5),
+                          child: Text(
+                            "RFQ",
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: ResponsiveHelper.scaleWidth(context, 8)),
+
+                    /// Add to Cart button-like container
+                    Expanded(
+                      flex: 5,
+                      child: AddToCartButton(),
+                    ),
+                  ],
+                ),
+              ),
+              Gap.vertical(context, 15),
+            ],
           ),
-          Gap.vertical(context, 15),
-        ],
-      ),
+        ),
+        Gap.vertical(context, 15)
+      ],
     );
   }
 }
@@ -208,14 +213,15 @@ class _AddToCartButtonState extends State<AddToCartButton> {
         }
       },
       child: Container(
+        height: ResponsiveHelper.scaleHeight(context, 34),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.red,
           borderRadius:
               BorderRadius.circular(ResponsiveHelper.scaleRadius(context, 14)),
         ),
-        padding: ResponsiveHelper.scalePadding(context,
-            vertical: 10, horizontal: 12),
+        padding:
+            ResponsiveHelper.scalePadding(context, vertical: 10, horizontal: 8),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 250),
           child: count == 0

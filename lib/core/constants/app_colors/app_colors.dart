@@ -14,13 +14,13 @@ class AppColors {
   // Neutral Colors
   static const Color black = Colors.black;
   static const Color white = Colors.white;
-  static const Color paleGrey = Color.fromARGB(65, 158, 158, 158);
+  static const Color paleGrey = Color(0xFFF5F5F5);
   static const Color darkGrey = Color.fromARGB(255, 123, 123, 123);
 
   // Text Colors
   static const Color textPrimary = Color(0xFF404040);
 
-  static const darkGreen = Color.fromARGB(255, 0, 127, 68);
+  static const darkGreen = Color(0xFF10AD0D);
   static const buttonColor = Color.fromARGB(255, 255, 61, 47);
 
   // Status Colors

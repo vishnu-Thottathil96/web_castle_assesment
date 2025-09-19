@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/core/config/routes_onfig/router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -23,6 +24,15 @@ class MyApp extends StatelessWidget {
           title: 'web castle Assesment',
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
+          theme: ThemeData(
+            textTheme: GoogleFonts.heeboTextTheme(),
+          ),
+          darkTheme: ThemeData(
+            textTheme: GoogleFonts.questrialTextTheme(
+              ThemeData.dark().textTheme,
+            ),
+          ),
+
           routerConfig: AppRouter.router,
           // Prevent system font scaling
           builder: (context, widget) {

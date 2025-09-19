@@ -17,7 +17,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double circleSize =
-        ResponsiveHelper.scaleWidth(context, 70); // smaller, responsive
+        ResponsiveHelper.scaleWidth(context, 70); 
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -35,7 +35,7 @@ class CategoryItem extends StatelessWidget {
               alignment: Alignment.center,
               child: Image.network(
                 imageUrl,
-                height: circleSize * 0.6, // scaled inside circle
+                height: circleSize * 0.6, 
                 width: circleSize * 0.6,
                 fit: BoxFit.contain,
               ),

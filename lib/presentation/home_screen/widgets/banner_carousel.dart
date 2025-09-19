@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/util/responsive_util.dart';
+import 'package:flutter_template/presentation/widgets/gap.dart';
 
 class BannerCarousel extends StatefulWidget {
   final List<String> imageUrls;
@@ -10,7 +11,7 @@ class BannerCarousel extends StatefulWidget {
   const BannerCarousel({
     super.key,
     required this.imageUrls,
-    this.heightFactor = 160,
+    this.heightFactor = 150,
     this.interval = const Duration(seconds: 3),
   });
 
@@ -60,29 +61,34 @@ class _BannerCarouselState extends State<BannerCarousel> {
     double bannerHeight =
         ResponsiveHelper.scaleHeight(context, widget.heightFactor);
 
-    return SizedBox(
-      height: bannerHeight,
-      width: double.infinity,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(
-          ResponsiveHelper.scaleRadius(context, 16),
+    return Column(
+      children: [
+        SizedBox(
+          height: bannerHeight,
+          width: double.infinity,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(
+              ResponsiveHelper.scaleRadius(context, 16),
+            ),
+            child: PageView.builder(
+              controller: _pageController,
+              physics: widget.imageUrls.length > 1
+                  ? const AlwaysScrollableScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              itemCount: widget.imageUrls.length,
+              itemBuilder: (context, index) {
+                return Image.network(
+                  widget.imageUrls[index],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: bannerHeight,
+                );
+              },
+            ),
+          ),
         ),
-        child: PageView.builder(
-          controller: _pageController,
-          physics: widget.imageUrls.length > 1
-              ? const AlwaysScrollableScrollPhysics()
-              : const NeverScrollableScrollPhysics(),
-          itemCount: widget.imageUrls.length,
-          itemBuilder: (context, index) {
-            return Image.network(
-              widget.imageUrls[index],
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: bannerHeight,
-            );
-          },
-        ),
-      ),
+        Gap.vertical(context, 15)
+      ],
     );
   }
 }
