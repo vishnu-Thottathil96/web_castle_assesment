@@ -1,16 +1,43 @@
-# flutter_template
+Features
 
-A new Flutter project.
+Authentication: Login using API, storing tokens securely in FlutterSecureStorage.
 
-## Getting Started
+Home Screen:
 
-This project is a starting point for a Flutter application.
+Dynamic banners, products, brands, and categories.
 
-A few resources to get you started if this is your first Flutter project:
+Pull-to-refresh support.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Horizontal & vertical scrolling lists.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+UI/UX:
+
+Responsive design using ScreenUtil.
+
+Reusable widgets like ProductCard, BannerCarousel, CategoryGrid.
+
+Shimmer loading effect for placeholders.
+
+Routing: Managed via GoRouter for smooth navigation.
+
+State Management: Riverpod for both auth and home screens.
+
+Dependencies
+
+flutter_riverpod – State management
+
+flutter_screenutil – Responsive layout
+
+google_fonts – Custom fonts
+
+flutter_secure_storage – Secure token storage
+
+http – API calls
+
+dartz – Functional programming utilities
+
+Notes
+
+The API base URL and endpoints are defined in core/config/api_config.
+
+Tokens are securely stored in infrastructure/services/secure_storage_services.
